@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selene import browser
 from dotenv import load_dotenv
+from utils import attach
 
 
 @pytest.fixture(scope="function", autouse=True)
@@ -40,9 +41,9 @@ def browser_set():
 
     yield
 
-    # attach.add_screenshot(driver)
-    # attach.add_logs(driver)
-    # attach.add_html(driver)
-    # attach.add_video(driver)
+    attach.add_screenshot(driver)
+    attach.add_logs(driver)
+    attach.add_html(driver)
+    attach.add_video(driver)
 
     browser.quit()

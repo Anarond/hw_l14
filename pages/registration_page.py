@@ -1,0 +1,54 @@
+from selene import browser
+import allure
+
+
+class RegistrationPage:
+    def __init__(self):
+        self.first_name_input = browser.element('#FirstName')
+        self.last_name_input = browser.element('#LastName')
+        self.email_input = browser.element('#Email')
+        self.company_name_input = browser.element('#Company')
+        self.password_input = browser.element('#Password')
+        self.confirm_password_input = browser.element('#ConfirmPassword')
+        self.checkbox = browser.element('.form-check-input')
+
+
+    @allure.step("Открываем страницу регистрации")
+    def open(self):
+        browser.open("/register")
+        return self
+
+    @allure.step("Заполняем поле Имя")
+    def fill_first_name(self, registered_user: dict):
+        self.first_name_input.type(registered_user['first_name'])
+        return self
+
+    @allure.step("Заполняем поле Фамилия")
+    def fill_last_name(self, registered_user: dict):
+        self.last_name_input.type(registered_user['last_name'])
+        return self
+
+    @allure.step("Заполняем поле Почта")
+    def fill_email(self, registered_user: dict):
+        self.email_input.type(registered_user['email'])
+        return self
+
+    @allure.step("Заполняем поле Компания")
+    def fill_company_name(self, registered_user: dict):
+        self.company_name_input.type(registered_user['company_name'])
+        return self
+
+    @allure.step("Заполняем поле Пароль")
+    def fill_password(self, registered_user: dict):
+        self.password_input.type(registered_user['password'])
+        return self
+
+    @allure.step("Подтверждаем поле Пароль")
+    def fill_confirm_password(self, registered_user: dict):
+        self.confirm_password_input.type(registered_user['password'])
+        return self
+
+    @allure.step("Отключаем чекбокс Новости")
+    def uncheck_checkbox(self):
+        self.checkbox.click()
+        return self

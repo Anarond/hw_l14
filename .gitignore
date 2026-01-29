@@ -3,3 +3,5 @@
 /allure-results/
 .env
 /notifications/
+__pycache__/
+.pytest_cache/

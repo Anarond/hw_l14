@@ -10,6 +10,7 @@ class RegistrationPage:
         self.company_name_input = browser.element('#Company')
         self.password_input = browser.element('#Password')
         self.confirm_password_input = browser.element('#ConfirmPassword')
+        self.checkbox = browser.element('.form-check-input')
 
 
     @allure.step("Открываем страницу регистрации")
@@ -45,4 +46,9 @@ class RegistrationPage:
     @allure.step("Подтверждаем поле Пароль")
     def fill_confirm_password(self, registered_user: dict):
         self.confirm_password_input.type(registered_user['password'])
+        return self
+
+    @allure.step("Отключаем чекбокс Новости")
+    def uncheck_checkbox(self):
+        self.checkbox.click()
         return self

@@ -1,4 +1,3 @@
-import allure
 from pages.registration_page import RegistrationPage
 from data.users import registered_user
 from selene import have
@@ -14,7 +13,7 @@ def test_user_registration(browser_set):
     registration_page.fill_company_name(registered_user)
     registration_page.fill_password(registered_user)
     registration_page.fill_confirm_password(registered_user)
-
+    registration_page.uncheck_checkbox()
 
 
     registration_page.first_name_input.should(have.value(registered_user['first_name']))
@@ -23,3 +22,4 @@ def test_user_registration(browser_set):
     registration_page.company_name_input.should(have.value(registered_user['company_name']))
     registration_page.password_input.should(have.value(registered_user['password']))
     registration_page.confirm_password_input.should(have.value(registered_user['password']))
+    registration_page.checkbox.should(have.value('true'))

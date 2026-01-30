@@ -1,4 +1,4 @@
-from selene import browser
+from selene import browser, have
 import allure
 
 
@@ -11,11 +11,19 @@ class RegistrationPage:
         self.password_input = browser.element('#Password')
         self.confirm_password_input = browser.element('#ConfirmPassword')
         self.checkbox = browser.element('.form-check-input')
+        self.gender = browser.element('#gender-male')
+        self.register_button = browser.element('#register-button')
+        self.registration_result = browser.element('.result')
 
 
     @allure.step("Открываем страницу регистрации")
     def open(self):
         browser.open("/register")
+        return self
+
+    @allure.step("Выбираем Пол")
+    def check_gender(self):
+        self.gender.click()
         return self
 
     @allure.step("Заполняем поле Имя")
@@ -51,4 +59,14 @@ class RegistrationPage:
     @allure.step("Отключаем чекбокс Новости")
     def uncheck_checkbox(self):
         self.checkbox.click()
+        return self
+
+    @allure.step("Нажимаем кнопку Регистрация")
+    def click_register_button(self):
+        self.register_button.click()
+        return self
+
+    @allure.step("Проверяем текст об успешной регистрации")
+    def have_success_message(self, message):
+        self.registration_result.should(have.text(message))
         return self

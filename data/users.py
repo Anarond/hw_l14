@@ -4,5 +4,5 @@ registered_user = {
     'email': 'test@test.com',
     'company_name': 'test',
     'password': 'test123456',
-    'ConfirmPassword': 'test123456'
+    'confirm_password': 'test123456'
 }

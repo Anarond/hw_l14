@@ -1,6 +1,9 @@
+import time
+
 from pages.registration_page import RegistrationPage
 from data.users import registered_user
-from selene import have
+
+
 
 def test_user_registration(browser_set):
     registration_page = RegistrationPage()

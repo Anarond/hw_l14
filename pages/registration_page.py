@@ -10,8 +10,8 @@ class RegistrationPage:
         self.phone_input = browser.element('#input-telephone')
         self.password_input = browser.element('#input-password')
         self.confirm_password_input = browser.element('#input-confirm')
-        self.newsletter_checkbox_yes = browser.element('#input-newsletter-yes')
-        self.privacy_policy_checkbox = browser.element('#input-agree')
+        self.newsletter_checkbox_yes = browser.element('label[for="input-newsletter-yes"]')
+        self.privacy_policy_checkbox = browser.element('label[for="input-agree"]')
         self.register_button = browser.element('input[value="Continue"]')
         self.registration_result = browser.element('.result')
 

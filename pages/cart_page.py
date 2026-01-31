@@ -5,7 +5,7 @@ import allure
 class CartPage:
     def __init__(self):
         self.electronics_tab = browser.element('a[href="/electronics"]')
-        self.cell_phones_tab = browser.element('a[href="/cell-phones"]')
+        self.cell_phones_tab = browser.element('.sub-category-item a[href="/cell-phones"]')
         self.iphone_product = browser.element('[data-productid="21"] .product-box-add-to-cart-button')
         self.nokia_product = browser.element('[data-productid="20"] .product-box-add-to-cart-button')
         self.books_tab = browser.element('a[href="/books"]')

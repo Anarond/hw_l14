@@ -13,7 +13,6 @@ class RegistrationPage:
         self.newsletter_checkbox_yes = browser.element('label[for="input-newsletter-yes"]')
         self.privacy_policy_checkbox = browser.element('label[for="input-agree"]')
         self.register_button = browser.element('input[value="Continue"]')
-        self.registration_result = browser.element('.result')
 
 
     @allure.step("Открываем страницу регистрации")
@@ -70,9 +69,4 @@ class RegistrationPage:
     @allure.step("Нажимаем кнопку Регистрация")
     def click_register_button(self):
         self.register_button.click()
-        return self
-
-    @allure.step("Проверяем текст об успешной регистрации")
-    def have_success_message(self, message):
-        self.registration_result.should(have.text(message))
         return self

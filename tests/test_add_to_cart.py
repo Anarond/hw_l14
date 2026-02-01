@@ -1,3 +1,5 @@
+import time
+
 from pages.cart_page import CartPage
 
 
@@ -6,12 +8,21 @@ def test_add_to_card(browser_set):
 
     cart_page.open()
 
-    cart_page.click_electronics_tab()
-    cart_page.click_cell_phones_tab()
-    cart_page.add_iphone_to_cart()
-    cart_page.add_nokia_to_cart()
-    cart_page.click_books_tab()
-    cart_page.add_fahrenheit_to_cart()
-    cart_page.click_jewelry_tab()
-    cart_page.add_bracelet_to_cart()
-    cart_page.open_cart()
+    cart_page.open_menu_tab()
+    cart_page.open_mp3_tab()
+    cart_page.open_page_2()
+    cart_page.open_macbook_product()
+    cart_page.add_product_to_cart()
+    cart_page.open_menu_tab()
+    cart_page.open_mp3_tab()
+    cart_page.open_page_2()
+    cart_page.open_hp_lp3065_product()
+    cart_page.add_product_to_cart()
+    #cart_page.open_phone_tablets_ipod_tab()
+    #cart_page.open_cannon_eos_5d()
+    # cart_page.add_product_to_cart()
+    # cart_page.open_menu_tab()
+    # cart_page.open_phone_tablets_ipod_tab()
+    # cart_page.open_page_2()
+    # cart_page.hp_lp3065_product()
+    # cart_page.add_product_to_cart()

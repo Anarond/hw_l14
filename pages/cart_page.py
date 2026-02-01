@@ -11,7 +11,7 @@ class CartPage:
         self.page_2 = browser.element('ul.pagination li.page-item a[href*="page=2"]')
         self.hp_lp3065_product = browser.element('[data-id="212408"] #mz-product-grid-image-47-212408')
 
-    @allure.step("Открываем страницу")
+    @allure.step("Открываем главную страницу")
     def open(self):
         browser.open("/")
         return self

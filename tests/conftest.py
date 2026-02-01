@@ -34,7 +34,9 @@ def browser_set():
 
     browser.config.driver = driver
 
-    browser.config.base_url = 'https://demo.nopcommerce.com'
+#    driver = browser.driver
+
+    browser.config.base_url = 'https://ecommerce-playground.lambdatest.io'
     browser.config.window_width = 1920
     browser.config.window_height = 1080
 

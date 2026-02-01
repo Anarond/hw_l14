@@ -4,26 +4,20 @@ import allure
 
 class RegistrationPage:
     def __init__(self):
-        self.first_name_input = browser.element('#FirstName')
-        self.last_name_input = browser.element('#LastName')
-        self.email_input = browser.element('#Email')
-        self.company_name_input = browser.element('#Company')
-        self.password_input = browser.element('#Password')
-        self.confirm_password_input = browser.element('#ConfirmPassword')
-        self.checkbox = browser.element('.form-check-input')
-        self.gender = browser.element('#gender-male')
-        self.register_button = browser.element('#register-button')
-        self.registration_result = browser.element('.result')
+        self.first_name_input = browser.element('#input-firstname')
+        self.last_name_input = browser.element('#input-lastname')
+        self.email_input = browser.element('#input-email')
+        self.phone_input = browser.element('#input-telephone')
+        self.password_input = browser.element('#input-password')
+        self.confirm_password_input = browser.element('#input-confirm')
+        self.newsletter_checkbox_yes = browser.element('label[for="input-newsletter-yes"]')
+        self.privacy_policy_checkbox = browser.element('label[for="input-agree"]')
+        self.register_button = browser.element('input[value="Continue"]')
 
 
     @allure.step("Открываем страницу регистрации")
     def open(self):
-        browser.open("/register")
-        return self
-
-    @allure.step("Выбираем Пол")
-    def check_gender(self):
-        self.gender.click()
+        browser.open('/index.php?route=account/register')
         return self
 
     @allure.step("Заполняем поле Имя")
@@ -44,10 +38,10 @@ class RegistrationPage:
         self.email_input.should(have.value(registered_user['email']))
         return self
 
-    @allure.step("Заполняем поле Компания")
-    def fill_company_name(self, registered_user: dict):
-        self.company_name_input.type(registered_user['company_name'])
-        self.company_name_input.should(have.value(registered_user['company_name']))
+    @allure.step("Заполняем поле Телефон")
+    def fill_phone(self, registered_user: dict):
+        self.phone_input.type(registered_user['phone'])
+        self.phone_input.should(have.value(registered_user['phone']))
         return self
 
     @allure.step("Заполняем поле Пароль")
@@ -62,17 +56,17 @@ class RegistrationPage:
         self.confirm_password_input.should(have.value(registered_user['confirm_password']))
         return self
 
-    @allure.step("Отключаем чекбокс Новости")
-    def uncheck_checkbox(self):
-        self.checkbox.click()
+    @allure.step("Соглашаемся на рассылку Новостей")
+    def check_newsletter_checkbox(self):
+        self.newsletter_checkbox_yes.click()
+        return self
+
+    @allure.step("Соглашаемся с Privacy Policy")
+    def check_privacy_policy_checkbox(self):
+        self.privacy_policy_checkbox.click()
         return self
 
     @allure.step("Нажимаем кнопку Регистрация")
     def click_register_button(self):
         self.register_button.click()
-        return self
-
-    @allure.step("Проверяем текст об успешной регистрации")
-    def have_success_message(self, message):
-        self.registration_result.should(have.text(message))
         return self

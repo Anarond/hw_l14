@@ -14,27 +14,28 @@ def load_env():
 
 @pytest.fixture
 def browser_set():
-    # selenoid_login = os.getenv("SELENOID_LOGIN")
-    # selenoid_pass = os.getenv("SELENOID_PASS")
-    # selenoid_url = os.getenv("SELENOID_URL")
-    #
-    # options = Options()
-    # selenoid_capabilities = {
-    #     "browserName": "chrome",
-    #     "selenoid:options": {
-    #         "enableVNC": True,
-    #         "enableVideo": True
-    #     }
-    # }
-    #
-    # options.capabilities.update(selenoid_capabilities)
-    # driver = webdriver.Remote(
-    #     command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
-    #     options=options)
-    #
-    # browser.config.driver = driver
+    selenoid_login = os.getenv("SELENOID_LOGIN")
+    selenoid_pass = os.getenv("SELENOID_PASS")
+    selenoid_url = os.getenv("SELENOID_URL")
 
-    driver = browser.driver
+    options = Options()
+    selenoid_capabilities = {
+        "browserName": "chrome",
+        "selenoid:options": {
+            "enableVNC": True,
+            "enableVideo": True
+        }
+    }
+
+    options.capabilities.update(selenoid_capabilities)
+    driver = webdriver.Remote(
+        command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
+        options=options)
+
+    browser.config.driver = driver
+
+#    driver = browser.driver
+
     browser.config.base_url = 'https://ecommerce-playground.lambdatest.io'
     browser.config.window_width = 1920
     browser.config.window_height = 1080

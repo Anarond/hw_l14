@@ -14,7 +14,6 @@ class RegistrationPage:
         self.privacy_policy_checkbox = browser.element('label[for="input-agree"]')
         self.register_button = browser.element('input[value="Continue"]')
 
-
     @allure.step("Открываем страницу регистрации")
     def open(self):
         browser.open('/index.php?route=account/register')

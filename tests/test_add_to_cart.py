@@ -1,5 +1,3 @@
-import time
-
 from pages.cart_page import CartPage
 
 
@@ -18,11 +16,3 @@ def test_add_to_card(browser_set):
     cart_page.open_page_2()
     cart_page.open_hp_lp3065_product()
     cart_page.add_product_to_cart()
-    #cart_page.open_phone_tablets_ipod_tab()
-    #cart_page.open_cannon_eos_5d()
-    # cart_page.add_product_to_cart()
-    # cart_page.open_menu_tab()
-    # cart_page.open_phone_tablets_ipod_tab()
-    # cart_page.open_page_2()
-    # cart_page.hp_lp3065_product()
-    # cart_page.add_product_to_cart()

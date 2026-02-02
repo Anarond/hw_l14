@@ -39,7 +39,7 @@
 ### 📸 Пример отчета Allure
 ![Allure Report](img/allure_report.png)
 ![Allure Report](img/suites.png)
-![Allure Report](img/test_add_to_cart.png)
+![Allure Report](img/test_add_to_card.png)
 ![Allure Report](img/test_search_product.png)
 ![Allure Report](img/test_user_recovery_password.png)
 ![Allure Report](img/test_user_registration.png)

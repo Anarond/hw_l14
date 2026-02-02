@@ -69,3 +69,16 @@ class RegistrationPage:
     def click_register_button(self):
         self.register_button.click()
         return self
+
+    @allure.step("Полная регистрация пользователя")
+    def full_register_user(self, registered_user: dict):
+        self.fill_first_name(registered_user)
+        self.fill_last_name(registered_user)
+        self.fill_email(registered_user)
+        self.fill_phone(registered_user)
+        self.fill_password(registered_user)
+        self.fill_confirm_password(registered_user)
+        self.check_newsletter_checkbox()
+        self.check_privacy_policy_checkbox()
+        self.click_register_button()
+        return self
